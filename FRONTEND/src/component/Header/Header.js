@@ -8,12 +8,14 @@ import {
   MenuItem,
   MenuList,
 } from "@material-ui/core";
+import {useCookies} from 'react-cookie'
 import { makeStyles } from "@material-ui/styles";
 import NotificationsNone from "@material-ui/icons/NotificationsNone";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import PersonIcon from "@material-ui/icons/Person";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const useStyle = makeStyles((theme) => ({
   gridBorder: {
@@ -34,7 +36,20 @@ const useStyle = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyle();
   const [powerOff, setPowerOff] = useState(false);
+  const [cookies,removeCookie] = useCookies([]);
   const navigate = useNavigate();
+  const logOut = () => {
+    console.log("fajk;d");
+    axios.get("http://localhost:5000/logout1/logout")
+      .then((response) => {
+        console.log(response.data, "hiiiiiiiiiiiiiiiii");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error during logout:", error);
+        // Handle the error or log more details
+      });
+  }
   return (
     <>
       <AppBar position="static" className={classes.root} position="fixed">
@@ -42,14 +57,6 @@ const Header = () => {
           <Grid container alignItems="center">
             <Grid item sm={true}></Grid>
             <Grid item>
-              {/* <IconButton>
-                <Badge badgeContent={5} color="secondary">
-                  <NotificationsNone fontSize="small"></NotificationsNone>
-                </Badge>
-              </IconButton>
-              <IconButton>
-                <PersonIcon fontSize="small" />
-              </IconButton> */}
               <IconButton
                 onClick={() => {
                   setPowerOff(!powerOff);
@@ -75,7 +82,7 @@ const Header = () => {
                     className={classes.marginright}
                     onClick={() => {
                       // console.log(document.cookie);
-                      navigate("/");
+                      logOut();
                     }}
                   >
                     Log Out
