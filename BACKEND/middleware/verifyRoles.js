@@ -16,7 +16,7 @@ const verifyEmployee = (req, res, next) => {
 };
 const verifyHr = (req, res, next) => {
   if (req.id[0] === "h" && req.loginAs === "Hr") {
-    // console.log(req.admin, req);
+    console.log(req.admin, req);
     return next();
   } else {
     res.status(400).json({ status: "falied", message: "access is restricted" });

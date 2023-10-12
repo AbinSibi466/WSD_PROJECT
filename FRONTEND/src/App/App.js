@@ -9,9 +9,9 @@ import AdminMain from "../PagesLayoutAdmin/AdminMain";
 import AdminProfileFoam from "../AdminFoam/AdminProfileFoam";
 import AdminHrFoam from "../AdminFoam/AdminHrFoam";
 import DesignationTable from "../PagesLayoutAdmin/DesignationTable";
-import DepartmentTable from "../PagesLayoutAdmin/DepartmentTable";
+// import DepartmentTable from "../PagesLayoutAdmin/DepartmentTable";
 import HrTable from "../PagesLayoutAdmin/HrTable";
-import HrEmployeeFoam from "../HrFoam/HrEmployeeFoam";
+// import HrEmployeeFoam from "../HrFoam/HrEmployeeFoam";
 import HrDashBoard from "../PagesLayoutHr/HrDashBoard";
 import HrMain from "../PagesLayoutHr/HrMain";
 import GeneratePayroll from "../PagesLayoutHr/GeneratePayroll";
@@ -22,10 +22,10 @@ import EmployeeDashBoard from "../PageLayoutEmployee/EmployeeDashBoard";
 import EmployeeMain from "../PageLayoutEmployee/EmployeeMain";
 import HrManageEmployee from "../PagesLayoutHr/HrManageEmployee";
 import HrProfileFoam from "../HrFoam/HrProfileFoam";
-import QrCode from "../component/Sidebar/QrCode/Qrcode";
+// import QrCode from "../component/Sidebar/QrCode/Qrcode";
 import EmployeeLeave from "../EmployeeFoam/EmployeeLeave";
 import EmployeeResignation from "../EmployeeFoam/EmployeeResignation";
-import EmployeeViewAttendence from "../EmployeeFoam/EmployeeViewAttendence";
+// import EmployeeViewAttendence from "../EmployeeFoam/EmployeeViewAttendence";
 import EmployeeViewPayroll from "../EmployeeFoam/EmployeeViewPayroll";
 import QRcodeReader from "../component/Sidebar/QrCode/QrcodeReader";
 
@@ -59,16 +59,16 @@ function App() {
               path="Admin-Profile"
               element={<AdminProfileFoam heading="HR Profile Information" />}
             />
-            {/* <Route path="Admin-HR-Foam" element={<AdminHrFoam />} /> */}
+            <Route path="Admin-HR-Foam" element={<AdminHrFoam />} />
             <Route
               exact
               path="Admin-Designation-Table"
               element={<DesignationTable />}
             />
-            <Route
+            {/* <Route
               path="Admin-Department-Table"
               element={<DepartmentTable />}
-            />
+            /> */}
             <Route path="Admin-HR-Table" element={<HrTable />} />
           </Route>
 
@@ -124,15 +124,15 @@ function App() {
               path="Apply-Resignation-Foam"
               element={<EmployeeResignation />}
             />
-            <Route
+            {/* <Route
               path="View-Attendence-Foam"
               element={<EmployeeViewAttendence />}
-            />
+            /> */}
             <Route
               path="Employee-Payroll-Table"
               element={<EmployeeViewPayroll />}
             />
-            <Route path="Add-Attendence-Foam" element={<QRcodeReader />} />
+            {/* <Route path="Add-Attendence-Foam" element={<QRcodeReader />} /> */}
           </Route>
         </Routes>
       </Router>

@@ -1,9 +1,9 @@
 import React from "react";
 import ChartBar from "../Chart/Chart";
 import ChartPie from "../Chart/ChartPie";
-import PersonIcon from "@material-ui/icons/Person";
+// import PersonIcon from "@material-ui/icons/Person";
 import { Paper, Grid, Card, Typography, makeStyles } from "@material-ui/core";
-import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { ListItemIcon, ListItemText } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {

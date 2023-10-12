@@ -29,16 +29,6 @@ export default function EmployeeDashBoard() {
       path: "Employee-Profile",
     },
     {
-      text: "Add Attendence",
-      icon: <PersonAddIcon color="#69F0AE" />,
-      path: "Add-Attendence-Foam",
-    },
-    {
-      text: "View Attendence",
-      icon: <PersonAddIcon color="#69F0AE" />,
-      path: "View-Attendence-Foam",
-    },
-    {
       text: "Apply Resignation",
       icon: <PersonAddIcon color="#69F0AE" />,
       path: "Apply-Resignation-Foam",

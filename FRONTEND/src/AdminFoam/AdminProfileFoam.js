@@ -30,7 +30,7 @@ export default function AdminProfileFoam(props) {
     );
     setProfileItems([
       { text: "Admin ID :", value: response.data.result[0].ADMIN_ID },
-      { text: "First Name :", value: response.data.result[0].FIRST_NAME },
+      { text: "First Name :", value: response.data.result[0].NAME },
       { text: "Last Name :", value: response.data.result[0].LAST_NAME },
       { text: "CNIC :", value: response.data.result[0].CNIC },
     ]);

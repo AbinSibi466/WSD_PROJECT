@@ -105,6 +105,7 @@ export default function ManageDesignation(props) {
           onRowAdd: (newRow) =>
             new Promise((resolve, reject) => {
               // const updateRows = [...tableData, newRow];
+              console.log("wwwwwwwwwwwww")
               axios.post(
                 "http://localhost:5000/admin/managedesignation",
                 {

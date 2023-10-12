@@ -51,7 +51,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -76,7 +75,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -101,7 +99,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -126,7 +123,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -150,7 +146,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -174,7 +169,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -199,7 +193,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -224,32 +217,6 @@ export default function HrManageEmployeeTable(props) {
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
-          (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
-        ) {
-          return true;
-        }
-        return false;
-      },
-    },
-    {
-      title: "DEPARTMENT ID",
-      field: "DEPARTMENT_ID",
-      validate: (rowData) => {
-        var reg_DEPARTMENT_ID = /^[0-9]+$/;
-        if (rowData.DEPARTMENT_ID == undefined || rowData.DEPARTMENT_ID == "") {
-          return "Field Required";
-        } else if (!reg_DEPARTMENT_ID.test(rowData.DEPARTMENT_ID)) {
-          return "Number Is Required";
-        } else if (
-          (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
-          (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
-          (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
-          (rowData.DOB != undefined || rowData.DOB != "") &&
-          (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
-          (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
-          (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
-          (rowData.CNIC != undefined || rowData.CNIC != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -277,8 +244,7 @@ export default function HrManageEmployeeTable(props) {
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
-          (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "")
+          (rowData.CNIC != undefined || rowData.CNIC != "") 
         ) {
           return true;
         }
@@ -385,16 +351,16 @@ export default function HrManageEmployeeTable(props) {
                     HIRE_DATE: newRow.HIRE_DATE,
                     ADDRESS: newRow.ADDRESS,
                     CNIC: newRow.CNIC,
-                    DEPARTMENT_ID: newRow.DEPARTMENT_ID,
                     DESIGNATION_ID: newRow.DESIGNATION_ID,
                   },
                   { withCredentials: true }
                 );
+                console.log(response,"resonse")
 
                 setTimeout(() => {
                   // setData(updateRows);
                   // console.log(response, "---");
-                  generteCode(response.data.data);
+                  // generteCode(response.data.data);
                   getData();
                   resolve();
                 }, 3000);
@@ -414,7 +380,6 @@ export default function HrManageEmployeeTable(props) {
                   HIRE_DATE: newValueRow.HIRE_DATE,
                   ADDRESS: newValueRow.ADDRESS,
                   CNIC: newValueRow.CNIC,
-                  DEPARTMENT_ID: newValueRow.DEPARTMENT_ID,
                   DESIGNATION_ID: newValueRow.DESIGNATION_ID,
                 },
                 { withCredentials: true }

@@ -41,11 +41,11 @@ export default function AdminDashBoard() {
       icon: <AddCircleIcon color="#69F0AE" />,
       path: "Admin-Designation-Table",
     },
-    {
-      text: "Manage Department",
-      icon: <AddCircleIcon color="#69F0AE" />,
-      path: "Admin-Department-Table",
-    },
+    // {
+    //   text: "Manage Department",
+    //   icon: <AddCircleIcon color="#69F0AE" />,
+    //   path: "Admin-Department-Table",
+    // },
     {
       text: "Manage HR",
       icon: <AddCircleIcon color="#69F0AE" />,

@@ -17,7 +17,7 @@ export default function DesignationTable() {
         if (
           rowData.DESIGNATION_NAME == undefined ||
           rowData.DESIGNATION_NAME == ""
-        ) {
+        ) {  
           return "Field Required";
         } else if (!reg_Designation_Name.test(rowData.DESIGNATION_NAME)) {
           return "Alphabet Is Required";

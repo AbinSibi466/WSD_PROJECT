@@ -20,7 +20,7 @@ exports.verifyCredentials = (req, res) => {
   let query = "";
   console.log("abinnn")
   if (loginAs === "Admin") {
-    query = "SELECT * FROM sys_admin WHERE FIRST_NAME=? AND password=?";
+    query = "SELECT * FROM sys_admin WHERE NAME=? AND password=?";
     console.log(query, "heiueiiu")
   } else if (loginAs === "Employee") {
     query =
@@ -34,7 +34,7 @@ exports.verifyCredentials = (req, res) => {
   db.query(query, [id, password], (err, row, fields) => {
     console.log("sjdalkj", id, password)
     if (err) {
-      console.log(err);
+      console.log(err); 
     }
     console.log("---", row);
     if (row.length === 1) {

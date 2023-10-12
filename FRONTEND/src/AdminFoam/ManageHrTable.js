@@ -49,7 +49,7 @@ export default function ManageHrTable(props) {
 
   useEffect(() => {
     getData();
-  }, []);
+  },  []);  
 
   return (
     <Paper elevation={0} square className={classes.root}>
@@ -68,6 +68,7 @@ export default function ManageHrTable(props) {
         editable={{
           onRowAdd: (newRow) =>
             new Promise((resolve, reject) => {
+
               // const updateRows = [...tableData, newRow];
               const response = axios.post(
                 "http://localhost:5000/admin/addhr",
@@ -83,9 +84,10 @@ export default function ManageHrTable(props) {
                 },
                 { withCredentials: true }
               );
+              console.log("alkjfd;1999")
               setTimeout(() => {
                 //setData(updateRows);
-                getData();
+                // getData();
                 resolve();
                 showMessage("Add");
               }, 3000);
@@ -112,7 +114,7 @@ export default function ManageHrTable(props) {
               );
               setTimeout(() => {
                 // setData(updateRows);
-                getData();
+                // getData();
                 resolve();
                 showMessage("Update");
               }, 3000);
@@ -129,7 +131,7 @@ export default function ManageHrTable(props) {
               });
               setTimeout(() => {
                 // setData(updateRows);
-                getData();
+                // getData();
                 resolve();
                 showMessage("Delete");
               }, 3000);

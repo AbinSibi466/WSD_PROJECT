@@ -1,5 +1,5 @@
 import React from "react";
-import TableTemplate from "../component/Table/TableTemplate";
+// import TableTemplate from "../component/Table/TableTemplate";
 import { makeStyles } from "@material-ui/styles";
 import { Paper, Typography } from "@material-ui/core";
 import MaterialTable from "material-table";

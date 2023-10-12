@@ -1,5 +1,5 @@
 import React from "react";
-import TableTemplate from "../component/Table/TableTemplate";
+// import TableTemplate from "../component/Table/TableTemplate";
 
 import { CssBaseline } from "@material-ui/core";
 

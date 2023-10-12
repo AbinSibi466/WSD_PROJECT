@@ -1,8 +1,7 @@
-import React from "react";
-import "../foam.css";
-import { useState } from "react";
-import { makeStyles } from "@material-ui/styles";
+import React, { useState } from "react";
 import { Paper, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import axios from "axios";
 
 const initialData = {
   FirstName: "",
@@ -13,6 +12,7 @@ const initialData = {
   Gender: "male",
   HireDate: new Date(),
 };
+
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "#fdfdff",
@@ -21,21 +21,41 @@ const useStyles = makeStyles((theme) => ({
   },
   content: { padding: theme.spacing(4), margin: theme.spacing(3) },
 }));
+
 export default function AdminHrFoam() {
   const classes = useStyles();
   const [data, setData] = useState(initialData);
+
   const onHandleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Assuming you have a backend endpoint for posting data
+      await axios.post("http://localhost:5000/admin/addHr", data);
+      console.log("jf;lkjf111111")
+
+      // If successful, you may want to reset the form or handle success in some way
+      setData(initialData);
+      console.log("Data submitted successfully!");
+    } catch (error) {
+      // Handle error, you might want to display an error message
+      console.error("Error submitting data:", error);
+    }
+  };
+
   return (
     <Paper elevation={0} square className={classes.root} align="center">
-      <foam classes={classes.content} autocomplete="off">
+      <form className={classes.content} autoComplete="off" onSubmit={handleSubmit}>
         <Typography variant="h6" component="div" align="center">
           Add HR Information
         </Typography>
         <table>
-          <tr>
+        <tr>
             <td>First Name : </td>
             <td>
               <input type="text" placeholder="First Name" required></input>
@@ -121,7 +141,13 @@ export default function AdminHrFoam() {
             </td>
           </tr>
         </table>
-      </foam>
+        <div>
+          <input type="reset" value="Reset" className="btnAlert" />
+          <input type="submit" value="Submit" className="btnSuccess" />
+        </div>
+      </form>
     </Paper>
   );
 }
+
+
