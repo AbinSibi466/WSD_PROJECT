@@ -38,11 +38,6 @@ export default function EmployeeDashBoard() {
       icon: <AddCircleIcon color="#69F0AE" />,
       path: "Apply-Leave-Foam",
     },
-    {
-      text: "View Payroll",
-      icon: <AddCircleIcon color="#69F0AE" />,
-      path: "Employee-Payroll-Table",
-    },
   ];
 
   return (

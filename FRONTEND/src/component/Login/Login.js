@@ -104,11 +104,12 @@
 //   );
 // }
 import "../../foam.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { makeStyles } from "@material-ui/styles";
 import { Paper, Typography } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "#fdfdff",
@@ -124,9 +125,19 @@ export default function Login() {
   const [msg, setMsg] = useState(false);
   const classes = useStyles();
   const navigate = useNavigate();
+  const [cookies, removeCookie] = useCookies([]);
   const LoginAs = (e) => {
     setLoginType(e.target.value);
   };
+  useEffect(() => {
+    const verifyUser = async () => {
+      if (cookies.accessToken) {
+        navigate("/Admin-DashBoard");
+      }
+    };
+
+    verifyUser();
+  }, [cookies, navigate, removeCookie]);
   const Signin = async (e) => {
     e.preventDefault();
 

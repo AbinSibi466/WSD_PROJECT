@@ -21,38 +21,28 @@ export default function AdminDashBoard() {
   const menuItems = [
     {
       text: "HR Dash Board",
-      icon: <DashboardIcon color="#69F0AE" />,
+      icon: <DashboardIcon color="white" />,
       path: "/HR-DashBoard",
     },
     {
       text: "View Profile",
-      icon: <AccountCircleIcon color="#69F0AE" />,
+      icon: <AccountCircleIcon color="white" />,
       path: "HR-Profile",
     },
-    // {
-    //   text: "Add Employee",
-    //   icon: <PersonAddIcon color="#69F0AE" />,
-    //   path: "HR-Employee-Foam",
-    // },
     {
       text: "Manage Employee",
-      icon: <PersonAddIcon color="#69F0AE" />,
+      icon: <PersonAddIcon color="white" />,
       path: "HR-ManageEmployee-Foam",
     },
     {
       text: "Approve Leave",
-      icon: <AddCircleIcon color="#69F0AE" />,
+      icon: <AddCircleIcon color="white" />,
       path: "HR-ApproveLeave-Foam",
     },
     {
       text: "Approve Resignation",
-      icon: <AddCircleIcon color="#69F0AE" />,
+      icon: <AddCircleIcon color="white" />,
       path: "HR-ApproveResignation-Foam",
-    },
-    {
-      text: "Generate Payroll",
-      icon: <AddCircleIcon color="#69F0AE" />,
-      path: "HR-GeneratePayroll-Foam",
     },
   ];
 

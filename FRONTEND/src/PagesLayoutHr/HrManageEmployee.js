@@ -22,6 +22,7 @@ export default function HrManageEmployee() {
           return "Alphabet Is Required";
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
@@ -46,6 +47,33 @@ export default function HrManageEmployee() {
         } else if (!reg_Last_Name.test(rowData.LAST_NAME)) {
           return "Alphabet Is Required";
         } else if (
+          (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
+          (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
+          (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
+          (rowData.DOB != undefined || rowData.DOB != "") &&
+          (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
+          (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
+          (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
+        ) {
+          return true;
+        }
+        return false;
+      },
+    },
+    {
+      title: "Password",
+      field: "password",
+      validate: (rowData) => {
+        var reg_Password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (rowData.password == undefined || rowData.password === "") {
+          return "Field Required";
+        } else if (!reg_Password.test(rowData.password)) {
+          return "Password does not meet the criteria";
+        } else if (
+          (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
@@ -73,6 +101,7 @@ export default function HrManageEmployee() {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
@@ -97,6 +126,7 @@ export default function HrManageEmployee() {
           return "Number Is Required";
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
@@ -124,6 +154,7 @@ export default function HrManageEmployee() {
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
@@ -148,6 +179,7 @@ export default function HrManageEmployee() {
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
@@ -171,6 +203,7 @@ export default function HrManageEmployee() {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
@@ -196,6 +229,7 @@ export default function HrManageEmployee() {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
@@ -209,31 +243,7 @@ export default function HrManageEmployee() {
         return false;
       },
     },
-    {
-      title: "DEPARTMENT ID",
-      field: "DEPARTMENT_ID",
-      validate: (rowData) => {
-        var reg_DEPARTMENT_ID = /^[0-9]+$/;
-        if (rowData.DEPARTMENT_ID == undefined || rowData.DEPARTMENT_ID == "") {
-          return "Field Required";
-        } else if (!reg_DEPARTMENT_ID.test(rowData.DEPARTMENT_ID)) {
-          return "Number Is Required";
-        } else if (
-          (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
-          (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
-          (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
-          (rowData.DOB != undefined || rowData.DOB != "") &&
-          (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
-          (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
-          (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
-          (rowData.CNIC != undefined || rowData.CNIC != "") &&
-          (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
-        ) {
-          return true;
-        }
-        return false;
-      },
-    },
+    
     {
       title: "DESIGNATION ID",
       field: "DESIGNATION_ID",
@@ -249,6 +259,7 @@ export default function HrManageEmployee() {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&

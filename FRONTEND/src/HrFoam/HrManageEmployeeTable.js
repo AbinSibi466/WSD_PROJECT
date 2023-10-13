@@ -45,12 +45,14 @@ export default function HrManageEmployeeTable(props) {
           return "Alphabet Is Required";
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -69,12 +71,40 @@ export default function HrManageEmployeeTable(props) {
           return "Alphabet Is Required";
         } else if (
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
+          (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
+        ) {
+          return true;
+        }
+        return false;
+      },
+    },
+    {
+      title: "Password",
+      field: "password",
+      validate: (rowData) => {
+        var reg_Password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (rowData.password == undefined || rowData.password === "") {
+          return "Field Required";
+        } else if (!reg_Password.test(rowData.password)) {
+          return "Password does not meet the criteria";
+        } else if (
+          (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
+          (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
+          (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
+          (rowData.DOB != undefined || rowData.DOB != "") &&
+          (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
+          (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -94,11 +124,13 @@ export default function HrManageEmployeeTable(props) {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -117,12 +149,14 @@ export default function HrManageEmployeeTable(props) {
           return "Number Is Required";
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -143,9 +177,11 @@ export default function HrManageEmployeeTable(props) {
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -166,9 +202,11 @@ export default function HrManageEmployeeTable(props) {
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -188,11 +226,13 @@ export default function HrManageEmployeeTable(props) {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -212,11 +252,13 @@ export default function HrManageEmployeeTable(props) {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "") &&
           (rowData.DESIGNATION_ID != undefined || rowData.DESIGNATION_ID != "")
         ) {
           return true;
@@ -224,6 +266,7 @@ export default function HrManageEmployeeTable(props) {
         return false;
       },
     },
+    
     {
       title: "DESIGNATION ID",
       field: "DESIGNATION_ID",
@@ -239,53 +282,19 @@ export default function HrManageEmployeeTable(props) {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
-          (rowData.CNIC != undefined || rowData.CNIC != "") 
+          (rowData.CNIC != undefined || rowData.CNIC != "") &&
+          (rowData.DEPARTMENT_ID != undefined || rowData.DEPARTMENT_ID != "")
         ) {
           return true;
         }
         return false;
       },
-      // editable: false,
-      // editComponent: (row) => (
-      //   <DropDown
-      //     value={row.DEPARTMENT_ID}
-      //     onChange={(e) => {
-      //       console.log(e.target.value);
-      //       // row.onChange(e.target.value);
-      //       row.DESIGNATION_ID = e.target.value;
-      //     }}
-      //   />
-      // )
-      // render: (row) => (
-      //   <DropDown
-      //     value={row.DESIGNATION_ID}
-      //     onChange={(e) => {
-      //       console.log(e.target.value);
-      //       row.DESIGNATION_ID = e.target.value;
-      //     }}
-      //   />
-      // console.log("dsdsd");
-      // return (
-      //   <select
-      //     onChange={(e) => {
-      //       console.log(e.target.value);
-      //       row.DESIGNATION_ID = e.target.value;
-      //       console.log(row.DEPARTMENT_ID);
-      //     }}
-      //   >
-      //     <option selected disabled hidden>
-      //       {row.DESIGNATION_ID}
-      //     </option>
-      //     <option>8</option>
-      //     <option>3</option>
-      //   </select>
-      // );
-      // ),
     },
   ];
 
@@ -324,7 +333,7 @@ export default function HrManageEmployeeTable(props) {
   return (
     <Paper elevation={0} square className={classes.root}>
       <Typography variant="h6" component="div">
-        Hi, Welcome Back!
+        Hi, Welcome Back! HR
       </Typography>
       <MaterialTable
         title="Manage Employee Table"
@@ -345,6 +354,7 @@ export default function HrManageEmployeeTable(props) {
                   {
                     FIRST_NAME: newRow.FIRST_NAME,
                     LAST_NAME: newRow.LAST_NAME,
+                    password:newRow.PASSWORD,
                     EMAIL: newRow.EMAIL,
                     PHONE_NUMBER: newRow.PHONE_NUMBER,
                     DOB: newRow.DOB,
@@ -374,6 +384,7 @@ export default function HrManageEmployeeTable(props) {
                   EMP_ID: oldValueRow.EMP_ID,
                   FIRST_NAME: newValueRow.FIRST_NAME,
                   LAST_NAME: newValueRow.LAST_NAME,
+                  password:newValueRow.PASSWORD,
                   EMAIL: newValueRow.EMAIL,
                   PHONE_NUMBER: newValueRow.PHONE_NUMBER,
                   DOB: newValueRow.DOB,

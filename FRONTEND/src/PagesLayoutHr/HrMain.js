@@ -43,11 +43,6 @@ export default function HrMain() {
       background: "rgb(255, 231, 217)",
     },
     {
-      text: `Number Of Employee's Department ${dept ? dept.size : "0"}`,
-      icon: <PersonIcon fontSize="large" color="secondary" />,
-      background: "rgb(255, 247, 205)",
-    },
-    {
       text: `Number Of Applied Resignation ${res ? res.length : "0"}`,
       icon: <PersonIcon fontSize="large" color="secondary" />,
       background: "rgb(208, 242, 255)",
@@ -61,7 +56,7 @@ export default function HrMain() {
 
   return (
     <>
-      <Main name="Sadeem" Items={Items} />
+      <Main name="HR" Items={Items} />
 
       <CssBaseline />
     </>

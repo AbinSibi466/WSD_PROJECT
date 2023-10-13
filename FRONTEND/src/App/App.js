@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import {  useNavigate } from "react-router-dom"
 import { Routes } from "react-router";
 import Login from "../component/Login/Login";
 import { createTheme } from "@material-ui/core";
@@ -21,6 +22,8 @@ import HrManageEmployee from "../PagesLayoutHr/HrManageEmployee";
 import HrProfileFoam from "../HrFoam/HrProfileFoam";
 import EmployeeLeave from "../EmployeeFoam/EmployeeLeave";
 import EmployeeResignation from "../EmployeeFoam/EmployeeResignation";
+import { useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 const theme = createTheme({
   palette: {
@@ -32,78 +35,56 @@ const theme = createTheme({
     borderRadius: "none",
   },
 });
+// ... (import statements)
+
 function App() {
+  
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Login />} />
+          <Route path="/" element={<Login />} />
+
           <Route
-            exact
             path="/Admin-DashBoard"
-            element={<AdminDashBoard></AdminDashBoard>}
+            element={<AdminDashBoard />}
           >
             <Route
-              path="/Admin-DashBoard"
+              index
               element={<AdminMain heading="HR Profile Information" />}
             />
-            <Route
-              path="Admin-Profile"
-              element={<AdminProfileFoam heading="HR Profile Information" />}
-            />
+            <Route path="Admin-Profile" element={<AdminProfileFoam heading="HR Profile Information" />} />
             <Route path="Admin-HR-Foam" element={<AdminHrFoam />} />
-            <Route
-              exact
-              path="Admin-Designation-Table"
-              element={<DesignationTable />}
-            />
+            <Route path="Admin-Designation-Table" element={<DesignationTable />} />
             <Route path="Admin-HR-Table" element={<HrTable />} />
           </Route>
 
           <Route
-            exact
             path="/Hr-DashBoard"
-            element={<HrDashBoard></HrDashBoard>}
+            element={<HrDashBoard />}
           >
             <Route
-              path="/Hr-DashBoard"
+              index
               element={<HrMain heading="HR Profile Information" />}
             />
-            <Route
-              path="HR-ApproveResignation-Foam"
-              element={<ApproveResignation />}
-            />
+            <Route path="HR-ApproveResignation-Foam" element={<ApproveResignation />} />
             <Route path="HR-ApproveLeave-Foam" element={<ApproveLeave />} />
-            <Route
-              path="HR-Profile"
-              element={<HrProfileFoam heading="Hr Profile Information" />}
-            />
-            <Route
-              path="HR-ManageEmployee-Foam"
-              element={<HrManageEmployee />}
-            />
+            <Route path="HR-Profile" element={<HrProfileFoam heading="Hr Profile Information" />} />
+            <Route path="HR-ManageEmployee-Foam" element={<HrManageEmployee />} />
           </Route>
 
           <Route
-            exact
             path="/Employee-DashBoard"
             element={<EmployeeDashBoard />}
           >
             <Route
-              path="/Employee-DashBoard"
+              index
               element={<EmployeeMain heading="HR Profile Information" />}
             />
-            <Route
-              path="Employee-Profile"
-              element={
-                <EmployeeProfileFoam heading="Employee Profile Information" />
-              }
-            />
+            <Route path="Employee-Profile" element={<EmployeeProfileFoam heading="Employee Profile Information" />} />
             <Route path="Apply-Leave-Foam" element={<EmployeeLeave />} />
-            <Route
-              path="Apply-Resignation-Foam"
-              element={<EmployeeResignation />}
-            />
+            <Route path="Apply-Resignation-Foam" element={<EmployeeResignation />} />
           </Route>
         </Routes>
       </Router>
@@ -112,3 +93,4 @@ function App() {
 }
 
 export default App;
+

@@ -19,6 +19,7 @@ export default function HrTable() {
           return "Alphabet Is Required";
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
@@ -42,12 +43,37 @@ export default function HrTable() {
           return "Alphabet Is Required";
         } else if (
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "")
+        ) {
+          return true;
+        }
+        return false;
+      },
+    },
+    {
+      title: "Password",
+      field: "password",
+      validate: (rowData) => {
+        var reg_Password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (rowData.password == undefined || rowData.password === "") {
+          return "Field Required";
+        } else if (!reg_Password.test(rowData.password)) {
+          return "Password does not meet the criteria";
+        } else if (
+          (rowData.LAST_NAME != undefined || rowData.LAST_NAME !== "") &&
+          (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME !== "") &&
+          (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER !== "") &&
+          (rowData.ADDRESS != undefined || rowData.ADDRESS !== "") &&
+          (rowData.DOB != undefined || rowData.DOB !== "") &&
+          (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE !== "") &&
+          (rowData.CNIC != undefined || rowData.CNIC !== "") &&
+          (rowData.EMAIL != undefined || rowData.EMAIL !== "")
         ) {
           return true;
         }
@@ -66,6 +92,7 @@ export default function HrTable() {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
@@ -88,6 +115,7 @@ export default function HrTable() {
           return "Number Is Required";
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
           (rowData.ADDRESS != undefined || rowData.ADDRESS != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
@@ -113,6 +141,7 @@ export default function HrTable() {
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "")
@@ -135,6 +164,7 @@ export default function HrTable() {
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
           (rowData.FIRST_NAME != undefined || rowData.FIRST_NAME != "") &&
           (rowData.CNIC != undefined || rowData.CNIC != "")
@@ -156,6 +186,7 @@ export default function HrTable() {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.PHONE_NUMBER != undefined || rowData.PHONE_NUMBER != "") &&
@@ -179,6 +210,7 @@ export default function HrTable() {
         } else if (
           (rowData.LAST_NAME != undefined || rowData.LAST_NAME != "") &&
           (rowData.EMAIL != undefined || rowData.EMAIL != "") &&
+          (rowData.password == undefined || rowData.password === "")&&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&
           (rowData.DOB != undefined || rowData.DOB != "") &&
           (rowData.HIRE_DATE != undefined || rowData.HIRE_DATE != "") &&

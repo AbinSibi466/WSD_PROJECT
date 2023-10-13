@@ -15,15 +15,10 @@ export default function EmployeeMain() {
       icon: <PersonIcon fontSize="large" color="secondary" />,
       background: "rgb(255, 247, 205)",
     },
-    {
-      text: "Payroll Status",
-      icon: <PersonIcon fontSize="large" color="secondary" />,
-      background: "rgb(208, 242, 255)",
-    },
   ];
   return (
     <>
-      <Main name="Sadeem" Items={Items} />
+      <Main name="Employee" Items={Items} />
 
       <CssBaseline />
     </>

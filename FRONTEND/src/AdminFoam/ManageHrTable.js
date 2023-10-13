@@ -75,6 +75,7 @@ export default function ManageHrTable(props) {
                 {
                   firstName: newRow.FIRST_NAME,
                   lastName: newRow.LAST_NAME,
+                  password:newRow.PASSWORD,
                   email: newRow.EMAIL,
                   phoneNumber: newRow.PHONE_NUMBER,
                   dob: newRow.DOB,
@@ -102,6 +103,7 @@ export default function ManageHrTable(props) {
                 {
                   firstName: newValueRow.FIRST_NAME,
                   lastName: newValueRow.LAST_NAME,
+                  password:newValueRow.PASSWORD,
                   email: newValueRow.EMAIL,
                   phoneNumber: newValueRow.PHONE_NUMBER,
                   dob: newValueRow.DOB,

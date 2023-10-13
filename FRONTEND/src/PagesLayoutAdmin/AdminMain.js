@@ -47,11 +47,6 @@ export default function AdminMain() {
       background: "rgb(255, 247, 205)",
     },
     {
-      text: `Number Of  Department${leave ? leave.length : "0"}`,
-      icon: <PersonIcon fontSize="large" color="secondary" />,
-      background: "rgb(208, 242, 255)",
-    },
-    {
       text: `Number Of Leaves ${res ? res.length : "0"}`,
       icon: <PersonIcon fontSize="large" color="secondary" />,
       background: "rgb(200, 250, 205)",
@@ -60,7 +55,7 @@ export default function AdminMain() {
 
   return (
     <>
-      <Main name="Sadeem" Items={Items} />
+      <Main name="Admin" Items={Items} />
 
       <CssBaseline />
     </>

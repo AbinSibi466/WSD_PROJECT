@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Badge,
   Grid,
   IconButton,
   Toolbar,
@@ -43,6 +42,8 @@ const Header = () => {
     axios.get("http://localhost:5000/logout1/logout")
       .then((response) => {
         console.log(response.data, "hiiiiiiiiiiiiiiiii");
+        console.log(cookies.accessToken,"ffffff")
+        removeCookie(cookies.accessToken)
         navigate("/");
       })
       .catch((error) => {

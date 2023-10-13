@@ -44,7 +44,7 @@ export default function HrResignationTable(props) {
   return (
     <Paper elevation={0} square className={classes.root}>
       <Typography variant="h6" component="div">
-        Hi, Welcome Back! Sadeem
+        Hi, Welcome Back! HR
       </Typography>
       <MaterialTable
         title="Manage Resignation Table"
