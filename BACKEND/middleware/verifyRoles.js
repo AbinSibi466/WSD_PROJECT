@@ -1,4 +1,5 @@
 const verifyAdmin = (req, res, next) => {
+  console.log("tokern")
   if (req.id[0] === "a" && req.loginAs === "Admin") {
     // console.log(req.admin, req);
     return next();

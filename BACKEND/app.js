@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 const usersRoute = require("./routes/usersRoute");
 const adminRoute = require("./routes/adminRoute");
 const hrRoute = require("./routes/hrRoute");
-const qrRoute = require("./routes/qrRoute");
+const logoutRoute = require("./routes/logoutRoute");
 const employeeRoute = require("./routes/employeeRoute");
 const { validateToken } = require("./middleware/JWT");
 const {
@@ -34,10 +34,11 @@ app.use(cookieParser());
 // ---------------------------------------------------
 // routes middleswares
 app.use("/", usersRoute);
-app.use("/qr", authIp, qrRoute);
 app.use("/admin", validateToken, verifyAdmin, adminRoute);
 app.use("/hr", validateToken, verifyHr, hrRoute);
 app.use("/employee", validateToken, verifyEmployee, employeeRoute);
+app.use("/logout1", logoutRoute);
+
 
 app.use("*", (req, res) => {
   res.status(404).send("404 page not founf");

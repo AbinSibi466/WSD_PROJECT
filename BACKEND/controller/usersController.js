@@ -44,8 +44,10 @@ exports.verifyCredentials = (req, res) => {
         const accessToken = createToken(id, loginAs);
               console.log("akljkjf")
         res.cookie("accessToken", accessToken, {
-          maxAge: 1800000, // 30 min
-          httpOnly: true,
+          path: "/" ,
+          domain: "localhost",
+          maxAge: 1800000,
+          httpOnly:false,
         });
 
         res

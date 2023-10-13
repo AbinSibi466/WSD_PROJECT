@@ -1,10 +1,6 @@
 const bcrypt = require("bcrypt");
-const mysql = require("mysql");
 const db = require("../config/database");
 const crypto = require("crypto");
-
-const nodemailer = require("nodemailer");
-const { end } = require("../config/database");
 // -----------------------------------------
 
 // exports.getAdminFrontPage = (req, res) => {
@@ -13,7 +9,7 @@ const { end } = require("../config/database");
 // };
 exports.getHr = (req, res) => {
   db.query( 
-    "select HR_ID,FIRST_NAME, LAST_NAME,EMAIL,PHONE_NUMBER,date_format(DOB, '%Y-%m-%d' ) as 'DOB',date_format(HIRE_DATE, '%Y-%m-%d' ) as 'HIRE_DATE',ADDRESS,CNIC from HR ",
+    "select HR_ID,FIRST_NAME, LAST_NAME,password,EMAIL,PHONE_NUMBER,date_format(DOB, '%Y-%m-%d' ) as 'DOB',date_format(HIRE_DATE, '%Y-%m-%d' ) as 'HIRE_DATE',ADDRESS,CNIC from HR ",
     (err, result) => {
       if (err) {
         res.status(404).json({ status: "failer" });
@@ -31,6 +27,7 @@ exports.addHr = (req, res, next) => {
   const {
     firstName,
     lastName,
+    password,
     email,
     phoneNumber,
     dob,
@@ -40,7 +37,6 @@ exports.addHr = (req, res, next) => {
   } = req.body;
   let hrId;
   //generating password
-  const password = crypto.randomBytes(20).toString("hex");
 
   // db.connect((err) => {
   //   if (err) {
@@ -130,6 +126,7 @@ exports.updateHr = (req, res) => {
     hrId,
     firstName,
     lastName,
+    password,
     email,
     phoneNumber,
     dob,
@@ -150,6 +147,8 @@ exports.updateHr = (req, res) => {
       lastName +
       "',EMAIL='" +
       email +
+      "',password='" +
+      password +
       "',PHONE_NUMBER='" +
       phoneNumber +
       "',DOB='" +
@@ -268,6 +267,7 @@ exports.postDesignation = (req, res) => {
 };
 
 exports.delDesignation = (req, res) => {
+  console.log(req.body,"ggggggggggg")
   // db.connect((err) => {
   //   if (err) {
   //     // throw err;
@@ -424,12 +424,23 @@ exports.updateDepartment = (req, res) => {
   );
   // db.end;
 };
+
+
+exports.adminlogout = async (req, res) => {
+  console.log("jjjjjjjjjjjjjjjjjj")
+  try{
+    res.clearCookie("accessToken",{path:"/"})
+    res.json({status:true})
+  }catch{
+    res.json({status:false})
+  }
+}
 // exports.addHr = async (req, res) => {
 //   const { emp_id, type, password } = req.body;
 
 //   const db = mysql.createConnection({
 //     host: process.env.DB_HOST,
-//     user: process.env.DB_USER,
+//     user: process.env.DB_USER,  
 //     password: process.env.DB_PASSWORD,
 //     database: process.env.DB_DATABASE,
 //   });

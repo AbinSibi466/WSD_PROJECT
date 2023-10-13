@@ -8,7 +8,6 @@ const createToken = (id, loginAs) => {
 const validateToken = (req, res, next) => {
   const accessToken = req.cookies["accessToken"];
 
-  console.log(req.cookies);
   if (!accessToken) {
     return res
       .status(400)

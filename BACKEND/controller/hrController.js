@@ -1,10 +1,5 @@
 const path = require("path");
 const db = require("../config/database");
-const crypto = require("crypto");
-const bcrypt = require("bcrypt");
-
-const nodemailer = require("nodemailer");
-const req = require("express/lib/request");
 // exports.getHrFrontPage = (req, res) => {
 //   res.status(200).send(`welcome hr ${req.query.hrUserName}`);
 // };
@@ -19,7 +14,7 @@ exports.getHrData = (req, res) => {
   // });
   // ---------------------------------
   db.query(
-    "SELECT HR_ID, FIRST_NAME, LAST_NAME, PASSWORD, EMAIL, PHONE_NUMBER, DOB, HIRE_DATE, ADDRESS, CNIC FROM hr WHERE HR_ID = ?",
+    "SELECT HR_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, DOB, HIRE_DATE, ADDRESS, CNIC FROM hr WHERE HR_ID = ?",
     [req.id],
     (err, result) => {
       console.log("Result:", result);
@@ -35,6 +30,7 @@ exports.addEmployee = (req, res) => {
   const {
     FIRST_NAME,
     LAST_NAME,
+    password,
     EMAIL,
     PHONE_NUMBER,
     DOB,
@@ -45,7 +41,6 @@ exports.addEmployee = (req, res) => {
   } = req.body;
   console.log("ajdfddddd",req.body)
   let EMP_ID;
-  const password = crypto.randomBytes(20).toString("hex");
   // db.connect((err) => {
   //   if (err) {
   //     return res.status(500).send("internal error occured...");
@@ -69,8 +64,8 @@ exports.addEmployee = (req, res) => {
     // bcrypt.hash(password, parseInt(process.env.SALT_ROUNDS)).then((hash) => {
       // console.log(process.env.SALT_ROUNDS);
       db.query(
-        "INSERT INTO employee (EMP_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, DOB, HIRE_DATE, ADDRESS, CNIC, HR_ID, DESIGNATION_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        [EMP_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, DOB, HIRE_DATE, ADDRESS, CNIC, req.id, DESIGNATION_ID],
+        "INSERT INTO employee (EMP_ID, FIRST_NAME, LAST_NAME,password, EMAIL, PHONE_NUMBER, DOB, HIRE_DATE, ADDRESS, CNIC, HR_ID, DESIGNATION_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [EMP_ID, FIRST_NAME, LAST_NAME,password, EMAIL, PHONE_NUMBER, DOB, HIRE_DATE, ADDRESS, CNIC, req.id, DESIGNATION_ID],
         (err, result) => {
           if (err) {
             return res.status(400).json({ status: "failed", error: err });
@@ -117,6 +112,7 @@ exports.updateEmployee = (req, res) => {
     EMP_ID,
     FIRST_NAME,
     LAST_NAME,
+    password,
     EMAIL,
     PHONE_NUMBER,
     DOB,
@@ -132,7 +128,9 @@ exports.updateEmployee = (req, res) => {
       FIRST_NAME +
       "',LAST_NAME='" +
       LAST_NAME +
-      "',EMAIL='" +
+      "',password='" +
+      password +
+      "'password='" +
       EMAIL +
       "',PHONE_NUMBER=" +
       PHONE_NUMBER +

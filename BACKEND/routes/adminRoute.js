@@ -12,6 +12,7 @@ const {
   postDesignation,
   delDesignation,
   updateDesignation,
+  adminlogout,
 } = require("../controller/adminController");
 
 router.route("/addhr").get(getHr).post(addHr).delete(delHr).put(updateHr);
@@ -22,4 +23,5 @@ router
   .post(postDesignation)
   .delete(delDesignation)
   .put(updateDesignation);
+router.route("/logout").get(adminlogout);
 module.exports = router;
